@@ -1,7 +1,7 @@
 #!/bin/sh
 
 
-function on_upper_limit {
+on_upper_limit () {
     local handle=$(nft -a list ruleset | grep "$1" | awk '{print $NF}')
     if test -n "$handle"; then
         nft delete rule inet mangle PREROUTING handle "$handle"
@@ -9,7 +9,7 @@ function on_upper_limit {
 }
 
 
-function on_lower_limit {
+on_lower_limit () {
     echo "lower"
     systemctl restart nftables
 }
