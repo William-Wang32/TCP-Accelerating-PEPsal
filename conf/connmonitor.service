@@ -2,7 +2,7 @@
 Description=Monitor PEPSal connections limits and manage nftables rules on its behalf
 
 [Service]
-Type=oneshot
+Type=simple
 ExecStart=/bin/bash connmonitor.sh "meta l4proto tcp ct count"
 
 [Install]
